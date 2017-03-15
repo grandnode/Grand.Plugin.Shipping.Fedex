@@ -24,6 +24,7 @@ using Grand.Services.Shipping;
 using Grand.Services.Shipping.Tracking;
 using Grand.Core.Infrastructure;
 using Grand.Services.Catalog;
+using Grand.Core.Domain.Orders;
 
 namespace Grand.Plugin.Shipping.Fedex
 {
@@ -525,7 +526,7 @@ namespace Grand.Plugin.Shipping.Fedex
                     // cube root (floor)
                     dimension = Convert.ToInt32(Math.Floor(Math.Pow(Convert.ToDouble(packageVolume), (double)(1.0 / 3.0))));
                     if (IsPackageTooLarge(dimension, dimension, dimension))
-                        throw new NopException("fedexSettings.PackingPackageVolume exceeds max package size");
+                        throw new GrandException("fedexSettings.PackingPackageVolume exceeds max package size");
 
                     // adjust packageVolume for dimensions calculated
                     packageVolume = dimension * dimension * dimension;
@@ -699,7 +700,7 @@ namespace Grand.Plugin.Shipping.Fedex
         {
             var usedMeasureWeight = _measureService.GetMeasureWeightBySystemKeyword(MEASUREWEIGHTSYSTEMKEYWORD);
             if (usedMeasureWeight == null)
-                throw new NopException("FedEx shipping service. Could not load \"{0}\" measure weight", MEASUREWEIGHTSYSTEMKEYWORD);
+                throw new GrandException(string.Format("FedEx shipping service. Could not load \"{0}\" measure weight", MEASUREWEIGHTSYSTEMKEYWORD));
             return usedMeasureWeight;
         }
 
@@ -707,7 +708,7 @@ namespace Grand.Plugin.Shipping.Fedex
         {
             var usedMeasureDimension = _measureService.GetMeasureDimensionBySystemKeyword(MEASUREDIMENSIONSYSTEMKEYWORD);
             if (usedMeasureDimension == null)
-                throw new NopException("FedEx shipping service. Could not load \"{0}\" measure dimension", MEASUREDIMENSIONSYSTEMKEYWORD);
+                throw new GrandException(string.Format("FedEx shipping service. Could not load \"{0}\" measure dimension", MEASUREDIMENSIONSYSTEMKEYWORD));
 
             return usedMeasureDimension;
         }
@@ -967,6 +968,16 @@ namespace Grand.Plugin.Shipping.Fedex
             this.DeletePluginLocaleResource("Enums.Grand.Plugin.Shipping.Fedex.DropoffType.Station");
 
             base.Uninstall();
+        }
+
+        public bool HideShipmentMethods(IList<ShoppingCartItem> cart)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Type GetControllerType()
+        {
+            return typeof(Controllers.ShippingFedexController);
         }
 
         #endregion

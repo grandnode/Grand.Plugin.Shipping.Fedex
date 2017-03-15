@@ -12,47 +12,47 @@ namespace Grand.Plugin.Shipping.Fedex.Models
             AvailableCarrierServices = new List<string>();
         }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.Url")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.Url")]
         public string Url { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.Key")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.Key")]
         public string Key { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.Password")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.Password")]
         public string Password { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.AccountNumber")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.AccountNumber")]
         public string AccountNumber { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.MeterNumber")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.MeterNumber")]
         public string MeterNumber { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.UseResidentialRates")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.UseResidentialRates")]
         public bool UseResidentialRates { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.ApplyDiscounts")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.ApplyDiscounts")]
         public bool ApplyDiscounts { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.AdditionalHandlingCharge")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.AdditionalHandlingCharge")]
         public decimal AdditionalHandlingCharge { get; set; }
 
         public IList<string> CarrierServicesOffered { get; set; }
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.CarrierServices")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.CarrierServices")]
         public IList<string> AvailableCarrierServices { get; set; }
         public string[] CheckedCarrierServices { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.PassDimensions")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.PassDimensions")]
         public bool PassDimensions { get; set; }
 
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.PackingPackageVolume")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.PackingPackageVolume")]
         public int PackingPackageVolume { get; set; }
 
         public int PackingType { get; set; }
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.PackingType")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.PackingType")]
         public SelectList PackingTypeValues { get; set; }
 
         public int DropoffType { get; set; }
-        [NopResourceDisplayName("Plugins.Shipping.Fedex.Fields.DropoffType")]
+        [GrandResourceDisplayName("Plugins.Shipping.Fedex.Fields.DropoffType")]
         public SelectList AvailableDropOffTypes { get; set; }
     }
 }
